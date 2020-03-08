@@ -1,0 +1,31 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #484848;
+    text-align: center;
+    box-shadow: 2px 2px 8px #484848;
+    background: #f8f4f4;
+    flex-grow:1;
+    border-radius: 16px;
+}
+
+card img {
+    border: 1px solid #484848;
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px #484848;
+
+}
+.game-controls{
+    flex-grow:1;
+    text-align:center;
+}
+.game-controls .game-toggle{
+    height:55px
+}
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}
