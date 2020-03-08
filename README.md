@@ -1,2 +1,4 @@
 # Memory-Game
-memory game create in JavaScript
+memory game created in JavaScript
+# day -1 
+grid created
