@@ -1,3 +1,9 @@
+.flip{
+    transform: rotateY(180deg);
+}
+.reverse-flip{
+    transform: rotateY(0deg);
+}
 .card-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -9,6 +15,7 @@
     background: #f8f4f4;
     flex-grow:1;
     border-radius: 16px;
+
 }
 
 card img {
@@ -16,11 +23,18 @@ card img {
     padding: 3px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px #484848;
-
+    transition: 1s ease-in-out;
+    transform-style: preserve-3d;
 }
-.game-controls{
-    flex-grow:1;
-    text-align:center;
+.game-controls {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+}
+.game-controls input,.game-controls button
+{
+    margin:0 auto
 }
 .game-controls .game-toggle{
     height:55px
