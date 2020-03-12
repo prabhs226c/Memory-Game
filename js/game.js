@@ -131,7 +131,7 @@ function match_cards()
                 stop_game()
             },2000)
 
-        } if(moves_left === 0)
+        }else if(moves_left === 0)
         {
             setTimeout(()=>{
                 alert('You are out of Moves. Your Score: '+score)
