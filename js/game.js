@@ -8,8 +8,6 @@ let high_score = 0
 let paired_matches = 0
 let myTime = null
 
-let flipped_cards = []
-
 let card_positions = []
 let cards_remaining = []
 
@@ -31,14 +29,24 @@ $('card').on('click',flip_card)
 
 function init_game()
 {
-    let start = new Date().getTime()
-    myTime = setInterval(()=>{
+    paired_matches = 0
 
-        $('#timer').val( new Date().getTime() - start )
-    },500)
+    let start = new Date()
+
+
+    myTime = setInterval(()=>{
+        let now = new Date()
+            now.setTime(new Date().getTime() - start.getTime())
+
+        $('#timer').val( now.getMinutes()+':'+now.getSeconds())
+    },100)
+
     load_cards()
+
     moves_left = 12
+
     $('#moves').val(moves_left)
+
     console.log(cards_remaining)
 
     for(let i = 0; i < 16;i++)
@@ -47,7 +55,7 @@ function init_game()
         card_positions[i] = cards_remaining[random_index]
         cards_remaining.splice(random_index,1)
     }
-    console.log(card_positions)
+    first_flip()
 }
 
 function update_highScore()
@@ -76,6 +84,7 @@ function hold_position()
 
 function flip_card(ev)
 {
+
 
     if(game_state === 1)
     {
@@ -114,10 +123,11 @@ function match_cards()
         $(first_card).attr('card_state','solved')
         $(second_card).attr('card_state','solved')
         paired_matches +=1
+        $('#pairs-found').val(paired_matches)
         if(paired_matches === 8)
         {
             setTimeout(()=>{
-                alert('Game Finished. Your Score: '+score)
+                alert('Game Finished. Your Score: '+score+' <br> Time Elapsed: '+$('#timer').val()+ 'm:s')
                 stop_game()
             },2000)
 
@@ -142,7 +152,7 @@ function match_cards()
 
         }
     }
-    $('#score').val(score)
+    $('#score').val(score<0?0:score)
 }
 function resetDeck()
 {
@@ -170,7 +180,7 @@ function resetDeck()
   function stop_game()
   {
       clearInterval(myTime)
-      update_highScore()
+
       $('img').removeClass('flip')
 
       $('.game-toggle').text('New Game')
@@ -181,4 +191,31 @@ function resetDeck()
       $('#score').val(0)
       update_highScore()
       score = 0
+  }
+
+  function first_flip()
+  {
+      let cards = $('card')
+    for(let position = 0; position < cards.length;position++ )
+      {
+
+          let card = $(cards[position]).find('img').eq(0)
+
+           card.removeClass('reverse-flip')
+           card.addClass('flip')
+          setTimeout(()=>{card.attr('src','images/'+card_positions[position])},500)
+           $(cards[position]).attr('card_state','open')
+
+          setTimeout(()=>{
+              card.removeClass('flip')
+              card.addClass('reverse-flip')
+
+              setTimeout(()=>{
+                 card.attr('src','images/a0.png')
+              },500)
+
+              $(cards[position]).attr('card_state','closed')
+
+          },4000)
+      }
   }
