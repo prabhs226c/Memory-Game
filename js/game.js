@@ -196,8 +196,8 @@ function resetDeck()
   function first_flip()
   {
       let cards = $('card')
-    for(let position = 0; position < cards.length;position++ )
-      {
+        for(let position = 0; position < cards.length;position++ )
+        {
 
           let card = $(cards[position]).find('img').eq(0)
 
