@@ -1,5 +1,4 @@
 'use strict'
-$('.back').hide()
 
 let game_state = 0
 let moves_left =  0
@@ -47,7 +46,7 @@ function init_game()
 
     $('#moves').val(moves_left)
 
-    console.log(cards_remaining)
+
 
     for(let i = 0; i < 16;i++)
     {
