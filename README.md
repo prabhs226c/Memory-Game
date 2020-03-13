@@ -2,9 +2,9 @@
 memory game created in JavaScript
 # Manureet Kaur
 
-flip_card()
-reset deck
-Design(HTML part)
+- flip_card()
+- reset deck
+- Design(HTML part)
 
 # prabhjot Singh
 
