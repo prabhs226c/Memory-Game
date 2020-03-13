@@ -75,7 +75,6 @@ function hold_position() {
 
 function flip_card(ev) {
 
-
     if (game_state === 1) {
         if ($(this).attr('card_state') === 'closed' && $('card[card_state="open"]').length < 2) {
             let this_position = $(this).attr('stack-position')
