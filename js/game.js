@@ -181,7 +181,6 @@ function first_flip() {
 
         let card = $(cards[position]).find('img').eq(0)
 
-
         card.addClass('flip')
         setTimeout(() => {
             card.attr('src', 'images/' + card_positions[position])
