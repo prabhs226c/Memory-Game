@@ -10,9 +10,9 @@ Design(HTML part)
 
 - match cards
 - stop game
-first flip
-init game
-load cards
-hold position
-update highscore
-toggle game-state
+- first flip
+- init game
+- load cards
+- hold position
+- update highscore
+- toggle game-state
