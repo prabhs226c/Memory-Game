@@ -6,10 +6,10 @@ flip_card()
 reset deck
 Design(HTML part)
 
-#prabhjot Singh
+# prabhjot Singh
 
-match cards
-stop game
+- match cards
+- stop game
 first flip
 init game
 load cards
