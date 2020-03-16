@@ -27,6 +27,7 @@ $('card').on('click', flip_card)
 
 function init_game() {
     paired_matches = 0
+    $('#pairs-found').val(0)
 
     let start = new Date()
 
